@@ -4,7 +4,7 @@ export default {
     // "sachivalaya.org" (apex) maps to pages/home/; subdomains map to pages/<mp>/
     const mp = url.hostname === 'sachivalaya.org' ? 'home' : url.hostname.split('.')[0];
 
-    if (url.pathname.startsWith('/gunaso/')) {
+    if (url.pathname === '/gunaso' || url.pathname.startsWith('/gunaso/')) {
       // Proxy to the Azure Container App for this MP.
       const azureFqdn = await env.MP_FQDNS.get(mp);
       if (!azureFqdn) {
