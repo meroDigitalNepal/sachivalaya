@@ -12,3 +12,7 @@
 # Cloudflare / Wrangler
 .wrangler/
 node_modules/
+
+# Secrets
+.env
+.env.*

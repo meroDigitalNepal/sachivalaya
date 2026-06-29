@@ -6,10 +6,10 @@ compatibility_date = "2025-06-01"
 # Run provision-cloudflare.sh once to create the namespace and fill in the id.
 [[kv_namespaces]]
 binding = "MP_FQDNS"
-id = "REPLACE_WITH_KV_NAMESPACE_ID"
+id = "0d9ba9bb4acb403b91a055a3525746b6"
 
 [vars]
-GITHUB_PAGES_HOST = "REPLACE_WITH_GITHUB_ORG.github.io"
+GITHUB_PAGES_HOST = "meroDigitalNepal.github.io"
 GITHUB_PAGES_REPO = "sachivalaya"
 
 [[routes]]
