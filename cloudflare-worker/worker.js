@@ -4,13 +4,6 @@ export default {
     // "sachivalaya.org" (apex) maps to pages/home/; subdomains map to pages/<mp>/
     const mp = url.hostname === 'sachivalaya.org' ? 'home' : url.hostname.split('.')[0];
 
-    if (url.pathname.startsWith('/.well-known/')) {
-      const ghUrl = new URL(request.url);
-      ghUrl.hostname = env.GITHUB_PAGES_HOST;
-      ghUrl.pathname = `/${env.GITHUB_PAGES_REPO}/.well-known${url.pathname.slice('/.well-known'.length)}`;
-      return fetch(ghUrl.toString());
-    }
-
     if (url.pathname === '/_debug') {
       const val = await env.MP_FQDNS.get(mp);
       return new Response(JSON.stringify({ hostname: url.hostname, mp, kvValue: val }), {
