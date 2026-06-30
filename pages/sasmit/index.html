@@ -57,20 +57,22 @@
     }
 
     .hero {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       max-width: 720px;
       margin: 0 auto;
-      padding: 80px 24px 56px;
+      padding: 56px 24px;
       text-align: center;
     }
 
-    .hero .avatar {
-      width: 104px;
-      height: 104px;
-      border-radius: 50%;
-      object-fit: cover;
-      background: var(--color-surface-raised);
-      border: 1px solid var(--color-border);
-      margin-bottom: 24px;
+    .hero .portrait {
+      width: 100%;
+      max-width: 260px;
+      height: auto;
+      margin-top: 28px;
     }
 
     .hero .eyebrow {
@@ -95,30 +97,32 @@
       color: var(--color-text-subtle);
     }
 
-    main {
-      max-width: 640px;
-      margin: 0 auto;
-      padding: 0 24px 80px;
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 28px;
     }
 
-    section {
-      padding: 32px 0;
-      border-top: 1px solid var(--color-border);
-    }
-
-    section h2 {
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.6px;
-      text-transform: uppercase;
-      color: var(--color-text-subtle);
-      margin-bottom: 14px;
-    }
-
-    section p {
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--color-surface-raised);
       color: var(--color-text);
-      font-size: 1.0625rem;
-      line-height: 1.6;
+      border: 1px solid var(--color-border);
+      padding: 11px 22px;
+      border-radius: var(--radius-button);
+      font-size: 0.9375rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .btn:hover {
+      background: #ececee;
+      border-color: var(--color-border-strong);
     }
 
     footer {
@@ -145,23 +149,16 @@
 </nav>
 
 <div class="hero">
-  <img class="avatar" src="photo.jpg" alt="Sasmit Pokharel" onerror="this.style.display='none'" />
-  <p class="eyebrow">Minister for Education, Science and Technology</p>
+  <p class="eyebrow">Minister of Education and Sports</p>
   <h1>Sasmit Pokharel</h1>
-  <p class="role">Kathmandu District No. 5 · Rastriya Swatantra Party (RSP)</p>
+  <p class="role">ya k lekhne hola!</p>
+  <img class="portrait" src="portrait.webp" alt="Sasmit Pokharel" onerror="this.style.display='none'" />
+  <div class="hero-actions">
+    <a class="btn" href="/gunaso/">Gunaso</a>
+    <a class="btn" href="https://www.sasmitpokharel.com/" target="_blank" rel="noreferrer">About me</a>
+    <a class="btn" href="https://example.com/yathartha" target="_blank" rel="noreferrer">Yathartha</a>
+  </div>
 </div>
-
-<main>
-  <section>
-    <h2>About</h2>
-    <p>
-      Sasmit Pokharel is the Minister for Education, Science and Technology, representing
-      Kathmandu District No. 5 with the Rastriya Swatantra Party (RSP). Born, raised, and
-      educated in Kathmandu, he holds a Master's in Public Administration and Anti-Corruption
-      from Tribhuvan University, along with a BBM and an LLB from Kathmandu University.
-    </p>
-  </section>
-</main>
 
 <footer>
   Made by Nepaliहरु via
