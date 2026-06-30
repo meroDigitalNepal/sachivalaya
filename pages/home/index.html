@@ -58,9 +58,15 @@
     }
 
     .hero {
+      flex: 1;
+      width: 100%;
       max-width: 720px;
       margin: 0 auto;
-      padding: 140px 24px;
+      padding: 48px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       text-align: center;
     }
 
@@ -75,11 +81,17 @@
 
     .hero h1 {
       font-family: var(--font-deva);
-      font-size: clamp(2.5rem, 7vw, 4.5rem);
+      font-size: clamp(2.25rem, 6vw, 4rem);
       font-weight: 600;
       letter-spacing: -1px;
-      line-height: 1.1;
+      line-height: 1.15;
       margin-bottom: 20px;
+    }
+
+    .hero h1 .divider {
+      color: var(--color-border-strong);
+      font-weight: 300;
+      margin: 0 0.15em;
     }
 
     .hero .subtitle {
@@ -114,7 +126,7 @@
 
 <div class="hero">
   <p class="eyebrow">Nepal's Digital Secretariat</p>
-  <h1 lang="ne">सचिवालय</h1>
+  <h1><span lang="ne">सचिवालय</span> <span class="divider">|</span> Sachivalaya</h1>
   <p class="subtitle">Sachivalaya helps secretariat teams manage executive and legislative work and respond to citizens, all in one place.</p>
 </div>
 
