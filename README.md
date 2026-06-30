@@ -50,6 +50,41 @@ Pages are intentionally dependency-free — inline CSS, no JS frameworks, no sha
 - [`az`](https://learn.microsoft.com/cli/azure/) — Azure CLI (`az login`), needed to look up Container App FQDNs
 - A Cloudflare account with the `sachivalaya.org` zone, and GitHub Pages enabled on this repo (Settings → Pages → Deploy from `main`)
 
+## Running locally
+
+There's no single "start" command — this is a static site fronted by a Cloudflare Worker, so how you run it depends on which part you're working on.
+
+### Preview a static MP page
+
+The pages are self-contained HTML with relative asset paths, so you can open one directly:
+
+```bash
+open pages/sasmit/index.html       # or pages/home/index.html
+```
+
+Or serve the folder over HTTP (closer to production):
+
+```bash
+cd pages/sasmit && python3 -m http.server 8000   # visit http://localhost:8000
+```
+
+The `/gunaso/` link won't work this way — in production that path is proxied by the Worker to an Azure Container App, which isn't running locally.
+
+### Run the Cloudflare Worker
+
+To exercise the routing logic in `worker.js`:
+
+```bash
+cd cloudflare-worker && wrangler dev   # serves at http://localhost:8787
+```
+
+Caveats:
+
+- The Worker **proxies** to the live backends — it fetches static content from the deployed GitHub Pages site and `/gunaso/*` from the deployed Azure Container Apps. It does **not** serve your local `pages/` directory.
+- Locally the hostname is `localhost`, so the MP resolves to `localhost` rather than a real MP. Hit `/_debug` to see what the Worker derived, and temporarily adjust how `mp` is computed if you need to test a specific MP's routing.
+
+There's no local equivalent of the full stack, since the gunaso backend lives in a separate repo and Azure infrastructure.
+
 ## Setup
 
 Run once, before onboarding any MP:
