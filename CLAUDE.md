@@ -34,6 +34,13 @@ After running it, manually edit `pages/<mp>/index.html` (and add a card to `page
 
 Required env vars: `CF_API_TOKEN`, `CF_ZONE_ID`, `CF_KV_NAMESPACE_ID`.
 
+## Previewing locally
+
+There is no full-stack local environment. How you preview depends on what you're changing:
+
+- **Static MP page**: pages are self-contained with relative asset paths, so open one directly (`open pages/sasmit/index.html`) or serve the folder (`cd pages/sasmit && python3 -m http.server 8000`). The `/gunaso/` link won't work — that path is only wired up by the Worker in production.
+- **Worker routing**: `cd cloudflare-worker && wrangler dev` (serves at `:8787`). Caveat: the Worker **proxies to the live deployed backends** — it fetches static content from the deployed GitHub Pages site and `/gunaso/*` from deployed Azure Container Apps. It does **not** serve your local `pages/` directory. Also, locally the hostname is `localhost`, so `mp` resolves to `"localhost"`; hit `/_debug` to see what was derived, and temporarily tweak the `mp` computation to test a specific MP.
+
 ## Commands
 
 ```bash
